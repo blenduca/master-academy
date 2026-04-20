@@ -157,3 +157,7 @@ function showFeedback(msg, type) {
 function hideFeedback() {
     if (feedbackEl) feedbackEl.hidden = true;
 }
+
+// Expõe funções do modal no escopo global (necessário para onclick no HTML)
+window.openLeadModal  = openLeadModal;
+window.closeLeadModal = closeLeadModal;
