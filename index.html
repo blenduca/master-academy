@@ -473,50 +473,128 @@
     <script>
         lucide.createIcons();
 
-        // Scroll reveal
+        // ── Scroll reveal ──
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('active');
             });
         }, { threshold: 0.08 });
-
         document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
 
-        // Urgency Timer Countdown
-        function initCountdown() {
+        // ── Countdown ──
+        (function initCountdown() {
             const timerEl = document.getElementById('countdown-timer');
             if (!timerEl) return;
-            
-            // Set for end of current day to create daily urgency
             let targetDate = new Date();
             targetDate.setHours(23, 59, 59, 0);
-            
-            if (new Date().getHours() >= 23) {
-                targetDate.setDate(targetDate.getDate() + 1);
-            }
-
+            if (new Date().getHours() >= 23) targetDate.setDate(targetDate.getDate() + 1);
             function update() {
-                const now = new Date();
-                const diff = targetDate - now;
-
-                if (diff <= 0) {
-                    timerEl.innerHTML = "00h 00m 00s";
-                    return;
-                }
-
-                const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-                const m = Math.floor((diff / 1000 / 60) % 60);
-                const s = Math.floor((diff / 1000) % 60);
-
-                timerEl.innerHTML = `${String(h).padStart(2, '0')}h ${String(m).padStart(2, '0')}m ${String(s).padStart(2, '0')}s`;
+                const diff = targetDate - new Date();
+                if (diff <= 0) { timerEl.innerHTML = '00h 00m 00s'; return; }
+                const h = Math.floor(diff / 3600000);
+                const m = Math.floor((diff % 3600000) / 60000);
+                const s = Math.floor((diff % 60000) / 1000);
+                timerEl.innerHTML = `${String(h).padStart(2,'0')}h ${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`;
             }
-            
             update();
             setInterval(update, 1000);
+        })();
+
+        // ── Modal ──
+        var ASAAS_URL   = 'https://www.asaas.com/c/6ygeqteukb7ctpbc';
+        var WEBHOOK_URL = 'https://automacao.bagents.cloud/webhook/d16921bc-1986-4b41-8afa-a512e3db7041';
+        var leadModal   = document.getElementById('lead-modal');
+        var leadForm    = document.getElementById('lead-form');
+        var submitBtn   = document.getElementById('lead-submit');
+        var feedbackEl  = document.getElementById('modal-feedback');
+
+        function openLeadModal() {
+            leadModal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+            lucide.createIcons();
         }
-        initCountdown();
+        function closeLeadModal() {
+            leadModal.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        // Botões que abrem o modal
+        document.querySelectorAll('.js-open-modal').forEach(function(btn) {
+            btn.addEventListener('click', openLeadModal);
+        });
+        // Botão fechar
+        document.querySelectorAll('.js-close-modal').forEach(function(btn) {
+            btn.addEventListener('click', closeLeadModal);
+        });
+        // Fechar clicando fora
+        leadModal.addEventListener('click', function(e) {
+            if (e.target === leadModal) closeLeadModal();
+        });
+        // Fechar com Esc
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && leadModal.classList.contains('open')) closeLeadModal();
+        });
+
+        // Máscara telefone
+        var telInput = document.getElementById('lead-telefone');
+        telInput.addEventListener('input', function() {
+            var v = telInput.value.replace(/\D/g, '').slice(0, 11);
+            if (v.length <= 10) v = v.replace(/^(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+            else                 v = v.replace(/^(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
+            telInput.value = v;
+        });
+
+        // Submit do formulário
+        leadForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var nome     = document.getElementById('lead-nome').value.trim();
+            var email    = document.getElementById('lead-email').value.trim();
+            var telefone = telInput.value.trim();
+
+            if (!nome || !email || !telefone) {
+                showFeedback('Por favor, preencha todos os campos.', 'error'); return;
+            }
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                showFeedback('Informe um e-mail válido.', 'error'); return;
+            }
+
+            setLoading(true);
+
+            var urlParams = new URLSearchParams(window.location.search);
+            var payload = { nome: nome, email: email, telefone: telefone };
+            ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'].forEach(function(k) {
+                var v = urlParams.get(k); if (v) payload[k] = v;
+            });
+
+            fetch(WEBHOOK_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            }).finally(function() {
+                setLoading(false);
+                showFeedback('✓ Dados enviados! Redirecionando...', 'success');
+                setTimeout(function() {
+                    window.open(ASAAS_URL, '_blank');
+                    closeLeadModal();
+                    leadForm.reset();
+                    hideFeedback();
+                }, 1500);
+            });
+        });
+
+        function setLoading(on) {
+            submitBtn.disabled = on;
+            var lbl = submitBtn.querySelector('.btn-label');
+            var spn = submitBtn.querySelector('.btn-loading');
+            if (lbl) lbl.hidden = on;
+            if (spn) spn.hidden = !on;
+        }
+        function showFeedback(msg, type) {
+            feedbackEl.textContent = msg;
+            feedbackEl.className = 'modal-feedback ' + type;
+            feedbackEl.hidden = false;
+        }
+        function hideFeedback() { feedbackEl.hidden = true; }
     </script>
 </body>
 </html>
