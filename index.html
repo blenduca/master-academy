@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Academy | Tributação Rural — Prepare-se para a Receita Federal</title>
+    <meta name="description" content="Saiba exatamente o que pagar, o que não pagar e como se proteger da Receita Federal no campo. Informação prática para o produtor rural — sem precisar ser contador.">
+    <link rel="icon" href="assets/Favicon - Logo da Guia do Navegador.png" type="image/png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons (outline) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- ══════════════════════════════════════
+         SEÇÃO 1 — HERO
+    ══════════════════════════════════════ -->
+    <header class="hero">
+        <!-- Navbar flutuante -->
+        <nav class="header-nav" id="header-nav">
+            <div class="container nav-inner">
+                <img src="assets/logo-master.png" alt="Master Academy" class="logo-top">
+                <button onclick="openLeadModal()" class="cta-mini">Garantir Minha Vaga</button>
+            </div>
+        </nav>
+
+        <!-- Vídeo de fundo -->
+        <video class="hero-video" autoplay loop muted playsinline>
+            <source src="https://academymaster.com.br/wp-content/uploads/2026/03/master-academy-background.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+
+        <!-- Conteúdo -->
+        <div class="container hero-content">
+            <div class="alert-badge reveal">
+                <i data-lucide="siren" class="alert-icon"></i>
+                <span>ATENÇÃO: A RECEITA FEDERAL JÁ ESTÁ NO CAMPO</span>
+            </div>
+
+            <h1 class="headline reveal">O único programa com<br><span class="highlight">estratégias reais</span> para o produtor rural.</h1>
+            <p class="sub-headline reveal">Não vire presa fácil do fisco. Descubra como blindar seu patrimônio e <strong>garantir uma economia financeira gigantesca</strong> — mantendo o dinheiro no seu bolso, sem complicação.</p>
+
+            <div class="cta-wrapper reveal">
+                <button onclick="openLeadModal()" class="cta-button pulse">QUERO ECONOMIZAR E ME PROTEGER</button>
+                
+                <div class="urgency-timer">
+                    <i data-lucide="timer" class="urgency-icon"></i>
+                    <div class="urgency-text">
+                        Ação da Receita se intensifica em:
+                        <strong id="countdown-timer">00h 00m 00s</strong>
+                    </div>
+                </div>
+                
+                <p class="cta-sub">
+                    <i data-lucide="shield-check" class="cta-sub-icon"></i>
+                    Garantia incondicional de 7 dias — risco zero
+                </p>
+            </div>
+
+            <!-- Trust badges -->
+            <div class="hero-badges reveal">
+                <span class="badge badge-threat"><i data-lucide="landmark"></i> Proteção contra a Receita</span>
+                <span class="badge badge-economy"><i data-lucide="piggy-bank"></i> Economia Financeira Direta</span>
+                <span class="badge"><i data-lucide="shield-alert"></i> Evite Multas Destrutivas</span>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- ══════════════════════════════════════
+         SEÇÃO 1.5 — PLACEHOLDER VÍDEO / PODCAST
+    ══════════════════════════════════════ -->
+    <section class="section video-teaser bg-dark">
+        <div class="container">
+            <div class="video-teaser-split">
+
+                <!-- Coluna esquerda: texto + CTA -->
+                <div class="video-teaser-left reveal-left">
+                    <p class="section-eyebrow light">Ouça quem vive isso no dia a dia</p>
+                    <h2 class="section-title text-white text-left">O Danilo explica<br><span style="color:var(--green)">em 3 minutos</span></h2>
+                    <p class="video-teaser-desc">O que muda para o produtor rural<br>com a Reforma Tributária, quais os erros<br>que podem custar dezenas de milhares na sua safra.</p>
+                    <button onclick="openLeadModal()" class="cta-button" style="font-size:1.1rem;padding:0.85rem 2.2rem;margin-top:1rem;">QUERO APRENDER MAIS</button>
+                </div>
+
+                <!-- Coluna direita: vídeo vertical 9:16 -->
+                <div class="video-vertical-wrapper reveal-right">
+                    <video controls class="video-vertical">
+                        <source src="assets/o danilo explica.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos.
+                    </video>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════
+         SEÇÃO 2 — IDENTIFICAÇÃO (DORES)
+    ══════════════════════════════════════ -->
+    <section class="section identification bg-light">
+        <div class="container">
+            <p class="section-eyebrow centered">Você se identifica com alguma dessas situações?</p>
+            <h2 class="section-title">Isso parece familiar?</h2>
+
+            <div class="grid cards">
+                <div class="card reveal">
+                    <div class="card-icon"><i data-lucide="help-circle"></i></div>
+                    <h4>Nunca paguei imposto</h4>
+                    <p>Agora vão me cobrar — e eu não sei por onde começar nem o que fazer.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="card-icon"><i data-lucide="file-text"></i></div>
+                    <h4>Nota fiscal nunca emitida</h4>
+                    <p>Preciso emitir notas, mas não tenho ideia de como funciona o processo.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="card-icon"><i data-lucide="shield-off"></i></div>
+                    <h4>Medo da Receita Federal</h4>
+                    <p>Receio ser autuado por erros nas obrigações e pagar multas que não devia.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="card-icon"><i data-lucide="trending-down"></i></div>
+                    <h4>Pagando mais do que deveria</h4>
+                    <p>Estou perdendo margem porque não conheço as estratégias de planejamento.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="card-icon"><i data-lucide="building-2"></i></div>
+                    <h4>PF ou CNPJ: qual escolher?</h4>
+                    <p>Não sei qual regime tributário é o mais vantajoso para o meu caso.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="card-icon"><i data-lucide="calendar-clock"></i></div>
+                    <h4>Transição 2026–2033</h4>
+                    <p>Tenho medo de agir errado durante o período de mudança da Reforma Tributária.</p>
+                </div>
+            </div>
+
+            <div class="solution-box mt-5 reveal">
+                <span class="solution-badge">A Solução</span>
+                <h3>A boa notícia: você não precisa passar por isso sozinho.</h3>
+                <p>O <strong>Mapa de Tributação Rural</strong> é a única metodologia focada 100% no produtor rural brasileiro que integra Reforma Tributária, Regimes Tributários, Ganho de Capital e Holding — com 13 estratégias de planejamento prontas para aplicar ao seu caso.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════
+         SEÇÃO 3 — O QUE VOCÊ VAI RECEBER
+    ══════════════════════════════════════ -->
+    <section class="section course bg-dark text-white">
+        <div class="container">
+            <p class="section-eyebrow light centered">Conteúdo completo e prático</p>
+            <h2 class="section-title text-white">O que você vai receber</h2>
+            <p class="section-lead text-center">O mapa definitivo em linguagem do campo, sem juridiquês, focado 100% na segurança patrimonial e na economia financeira do produtor.</p>
+
+            <!-- 4 benefícios principais -->
+            <div class="features-grid">
+                <div class="feature reveal-left">
+                    <div class="feature-icon"><i data-lucide="layers"></i></div>
+                    <div class="feature-body">
+                        <h4>5 Módulos Disponíveis Agora</h4>
+                        <p>Mais de 40 aulas gravadas de 10 a 15 min cada — da base ao planejamento avançado, no seu ritmo.</p>
+                    </div>
+                </div>
+                <div class="feature reveal-right">
+                    <div class="feature-icon"><i data-lucide="package-plus"></i></div>
+                    <div class="feature-body">
+                        <h4>5 Módulos Extras em Produção</h4>
+                        <p>Holding, Ganho de Capital, Fiscalização e Planejamento Sucessório — acesso incluso assim que lançarem.</p>
+                    </div>
+                </div>
+                <div class="feature reveal-left">
+                    <div class="feature-icon"><i data-lucide="message-circle"></i></div>
+                    <div class="feature-body">
+                        <h4>Suporte Direto com o Prof. Danilo</h4>
+                        <p>Grupo exclusivo de WhatsApp para alunos — tire dúvidas diretamente com o especialista a qualquer hora.</p>
+                    </div>
+                </div>
+                <div class="feature reveal-right">
+                    <div class="feature-icon"><i data-lucide="users"></i></div>
+                    <div class="feature-body">
+                        <h4>Comunidade de Produtores</h4>
+                        <p>Networking com outros produtores na plataforma. Troque experiências com quem vive o dia a dia do campo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Módulos -->
+            <div class="modules-section">
+                <p class="section-eyebrow light centered">Os 5 módulos disponíveis agora</p>
+                <h3 class="modules-title">Conheça os Módulos</h3>
+                <div class="module-covers-grid">
+                    <div class="module-item reveal">
+                        <img src="assets/Capas dos Módulos na Vertical.png" alt="Módulo 1 — Introdução">
+                    </div>
+                    <div class="module-item reveal">
+                        <img src="assets/Capas dos Módulos na Vertical-1.png" alt="Módulo 2 — Reforma Tributária">
+                    </div>
+                    <div class="module-item reveal">
+                        <img src="assets/Capas dos Módulos na Vertical-2.png" alt="Módulo 3 — Tributação no Agronegócio">
+                    </div>
+                    <div class="module-item reveal">
+                        <img src="assets/Capas dos Módulos na Vertical-3.png" alt="Módulo 4 — Planejamento do Produtor Rural PF">
+                    </div>
+                    <div class="module-item reveal">
+                        <img src="assets/Capas dos Módulos na Vertical-4.png" alt="Módulo 5 — 13 Estratégias de Planejamento">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════
+         SEÇÃO 4 — PARA QUEM É
+    ══════════════════════════════════════ -->
+    <section class="section audience">
+        <div class="audience-overlay"></div>
+        <div class="container">
+            <div class="audience-inner reveal">
+                <div class="audience-header">
+                    <p class="section-eyebrow light">Público do programa</p>
+                    <h2 class="section-title text-white text-left">Para quem é este programa?</h2>
+                    <p class="audience-lead">Criado especificamente para quem vive e trabalha no campo —<br>sem jargões técnicos e com aplicação imediata.</p>
+                </div>
+                <ul class="audience-list">
+                    <li>
+                        <span class="audience-icon"><i data-lucide="check-circle-2"></i></span>
+                        <span><strong>Produtor rural</strong> (PF ou PJ) que precisa se adaptar à&nbsp;Reforma&nbsp;Tributária</span>
+                    </li>
+                    <li>
+                        <span class="audience-icon"><i data-lucide="check-circle-2"></i></span>
+                        <span>Filhos, noras e <strong>gestores de fazendas</strong> que assumiram a administração do&nbsp;negócio</span>
+                    </li>
+                    <li>
+                        <span class="audience-icon"><i data-lucide="check-circle-2"></i></span>
+                        <span>Donos de <strong>revendas agrícolas</strong> e cooperativas impactados&nbsp;pelo&nbsp;IBS/CBS</span>
+                    </li>
+                    <li>
+                        <span class="audience-icon"><i data-lucide="check-circle-2"></i></span>
+                        <span>Quem precisa emitir nota fiscal e quer <strong>regularizar</strong> <strong>sua&nbsp;situação</strong> com segurança</span>
+                    </li>
+                    <li>
+                        <span class="audience-icon"><i data-lucide="check-circle-2"></i></span>
+                        <span>Famílias que buscam criar uma <strong>holding rural</strong> e planejar a&nbsp;sucessão&nbsp;patrimonial</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════
+         SEÇÃO 5 — SOBRE O DANILO (AUTORIDADE)
+    ══════════════════════════════════════ -->
+    <section class="section about-danilo bg-light">
+        <div class="container">
+            <div class="about-inner">
+
+                <!-- Foto do Danilo -->
+                <div class="about-photo-col reveal-left">
+                    <img src="assets/prof danilo.jpeg" alt="Prof. Danilo Polacinski" class="about-photo-real" style="width:100%; border-radius:var(--radius-md); box-shadow: 0 16px 40px rgba(0,0,0,0.2);">
+                    <div class="about-highlight-card">
+                        <div class="about-stat">
+                            <strong>+15 anos</strong>
+                            <span>de experiência em tributação&nbsp;rural</span>
+                        </div>
+                        <div class="about-stat">
+                            <strong>+500</strong>
+                            <span>produtores atendidos&nbsp;na&nbsp;região</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bio / mini currículo -->
+                <div class="about-bio-col reveal-right">
+                    <p class="section-eyebrow">Conheça o especialista</p>
+                    <h2 class="section-title text-left">Prof. Danilo<br><span class="about-name-highlight">Polacinski</span></h2>
+
+
+
+                    <!-- Estrutura de bio pronta para o texto final -->
+                    <div class="about-bio-text">
+                        <p class="about-lead">Especialista em tributação rural e planejamento patrimonial para produtores do agronegócio, Danilo Polacinski é referência reconhecida na região pelo trabalho prático e pela linguagem acessível.</p>
+
+                        <ul class="about-credentials">
+                            <li><i data-lucide="award"></i> <span>Especialista em Tributação Rural e Holding Familiar</span></li>
+                            <li><i data-lucide="map-pin"></i> <span>Referência regional no agronegócio — atendente de produtores em toda a região</span></li>
+                            <li><i data-lucide="book-open"></i> <span>Criador do Mapa de Tributação Rural — metodologia exclusiva para produtores PF e PJ</span></li>
+                            <li><i data-lucide="youtube"></i> <span>Canal <a href="https://www.youtube.com/@GrupoMasterAcademy" target="_blank">@GrupoMasterAcademy</a> no YouTube</span></li>
+                        </ul>
+
+                        <blockquote class="about-quote">
+                            <span class="quote-mark">&ldquo;</span>
+                            <p class="quote-text">O produtor rural não precisa virar contador. Ele precisa de informação certa, na linguagem certa, para tomar a&nbsp;decisão&nbsp;certa.</p>
+                            <cite>— Danilo Polacinski</cite>
+                        </blockquote>
+                    </div>
+
+                    <button onclick="openLeadModal()" class="cta-button" style="margin-top:2rem;font-size:1.2rem;padding:0.9rem 2.4rem;">APRENDER COM O DANILO</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════
+         SEÇÃO 6 — OFERTA
+    ══════════════════════════════════════ -->
+    <section id="oferta" class="section offer bg-brand text-white">
+        <div class="container text-center">
+            <p class="section-eyebrow light">Investimento no seu negócio</p>
+            <h2 class="section-title text-white">Quanto custa não se preparar?</h2>
+            <p class="offer-context-text">Uma autuação da Receita Federal ou um imposto pago a mais pode custar  <strong>dezenas de vezes</strong> o valor deste programa.<br>A pergunta não é se você pode investir — é se você pode <em>não</em> investir.</p>
+
+            <div class="offer-box reveal">
+                <div class="offer-badge">ACESSO COMPLETO</div>
+                <h3>Mapa de Tributação Rural<br>no Agronegócio</h3>
+                <p class="offer-desc">Acesso imediato a todos os módulos, comunidade exclusiva e suporte direto com o Prof. Danilo.</p>
+
+                <div class="offer-checklist">
+                    <span><i data-lucide="check"></i> Mais de 40 aulas gravadas disponíveis imediatamente</span>
+                    <span><i data-lucide="check"></i> Certificado de conclusão incluído no plano</span>
+                    <span><i data-lucide="check"></i> Grupo exclusivo de WhatsApp com o Prof. Danilo</span>
+                    <span><i data-lucide="check"></i> Acesso completo por 12 meses na plataforma</span>
+                    <span><i data-lucide="check"></i> Módulos extras incluídos sem custo adicional</span>
+                </div>
+
+                <div class="price-block">
+                    <div class="price-main-label">Investimento</div>
+                    <div class="price">R$ 997,00</div>
+                    <div class="price-cash">ou em até 12x no cartão</div>
+                </div>
+
+                <button onclick="openLeadModal()" class="cta-button pulse">GARANTIR MINHA PROTEÇÃO</button>
+
+                <div class="guarantee">
+                    <i data-lucide="shield-check" class="guarantee-icon"></i>
+                    <div class="guarantee-text">
+                        <strong>Risco Zero — Garantia de 7 Dias</strong>
+                        <span>Se não ficar satisfeito por qualquer motivo, devolvemos 100% do seu investimento.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════
+         FOOTER
+    ══════════════════════════════════════ -->
+    <footer class="footer bg-dark text-white">
+        <div class="container">
+            <div class="footer-grid">
+
+                <!-- Coluna 1: Marca -->
+                <div class="footer-col brand-col">
+                    <img src="assets/logo-master.png" alt="Master Academy" class="logo-footer">
+                    <p class="footer-desc">A academia de excelência que transforma os resultados do agronegócio. Conhecimento prático e estratégico para o produtor rural brasileiro.</p>
+                </div>
+
+                <!-- Coluna 2: Links -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">Links Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i data-lucide="chevron-right"></i> Home</a></li>
+                        <li><a href="#oferta"><i data-lucide="chevron-right"></i> Garantir Vaga</a></li>
+                        <li><a href="#"><i data-lucide="chevron-right"></i> Quem Somos</a></li>
+                        <li><a href="#"><i data-lucide="chevron-right"></i> Segurança e Privacidade</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 3: Contato -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">Contato &amp; Redes</h4>
+                    <div class="social-links" style="flex-direction: column; align-items: flex-start; gap: 1rem;">
+                        <a href="mailto:atendimento@academymaster.com.br" aria-label="E-mail" style="width: 100%; justify-content: flex-start;">
+                            <i data-lucide="mail" style="width: 16px; height: 16px;"></i>
+                            atendimento@academymaster.com.br
+                        </a>
+                        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                            <a href="https://www.instagram.com/grupomasteracademy" target="_blank" aria-label="Instagram">
+                                <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                                @grupomasteracademy
+                            </a>
+                            <a href="https://www.youtube.com/@GrupoMasterAcademy" target="_blank" aria-label="YouTube">
+                                <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+                                @GrupoMasterAcademy
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2026 Master Academy Agro. Todos os direitos reservados.</p>
+                <p class="dev-credits">Escola de Excelência</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ══════════════════════════════════════
+         MODAL DE CAPTURA DE LEAD
+    ══════════════════════════════════════ -->
+    <div id="lead-modal" class="lead-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="lead-modal-box">
+            <!-- Ícone decorativo -->
+            <div class="modal-icon-wrap">
+                <i data-lucide="shield-check" class="modal-shield-icon"></i>
+            </div>
+
+            <!-- Header -->
+            <h2 id="modal-title" class="modal-title">Garanta sua vaga agora</h2>
+            <p class="modal-subtitle">Preencha os dados abaixo para prosseguir com sua inscrição com segurança.</p>
+
+            <!-- Formulário -->
+            <form id="lead-form" class="lead-form" novalidate>
+                <div class="form-group">
+                    <label for="lead-nome">Nome completo</label>
+                    <div class="input-wrapper">
+                        <i data-lucide="user" class="input-icon"></i>
+                        <input type="text" id="lead-nome" name="nome" placeholder="Seu nome completo" required autocomplete="name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lead-email">E-mail</label>
+                    <div class="input-wrapper">
+                        <i data-lucide="mail" class="input-icon"></i>
+                        <input type="email" id="lead-email" name="email" placeholder="seu@email.com" required autocomplete="email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lead-telefone">WhatsApp / Telefone</label>
+                    <div class="input-wrapper">
+                        <i data-lucide="smartphone" class="input-icon"></i>
+                        <input type="tel" id="lead-telefone" name="telefone" placeholder="(00) 00000-0000" required autocomplete="tel">
+                    </div>
+                </div>
+
+                <button type="submit" id="lead-submit" class="lead-submit-btn">
+                    <span class="btn-label">GARANTIR MINHA PROTEÇÃO</span>
+                    <span class="btn-loading" hidden>
+                        <svg class="spinner" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" stroke-dasharray="31.4" stroke-dashoffset="10"/></svg>
+                        Enviando...
+                    </span>
+                </button>
+
+                <div id="modal-feedback" class="modal-feedback" hidden></div>
+            </form>
+
+            <!-- Segurança -->
+            <p class="modal-security">
+                <i data-lucide="lock" class="modal-lock-icon"></i>
+                Seus dados estão protegidos. Nenhum spam.
+            </p>
+
+            <!-- Fechar -->
+            <button class="modal-close" onclick="closeLeadModal()" aria-label="Fechar">&times;</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        lucide.createIcons();
+
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.08 });
+
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+
+        // Urgency Timer Countdown
+        function initCountdown() {
+            const timerEl = document.getElementById('countdown-timer');
+            if (!timerEl) return;
+            
+            // Set for end of current day to create daily urgency
+            let targetDate = new Date();
+            targetDate.setHours(23, 59, 59, 0);
+            
+            if (new Date().getHours() >= 23) {
+                targetDate.setDate(targetDate.getDate() + 1);
+            }
+
+            function update() {
+                const now = new Date();
+                const diff = targetDate - now;
+
+                if (diff <= 0) {
+                    timerEl.innerHTML = "00h 00m 00s";
+                    return;
+                }
+
+                const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                const m = Math.floor((diff / 1000 / 60) % 60);
+                const s = Math.floor((diff / 1000) % 60);
+
+                timerEl.innerHTML = `${String(h).padStart(2, '0')}h ${String(m).padStart(2, '0')}m ${String(s).padStart(2, '0')}s`;
+            }
+            
+            update();
+            setInterval(update, 1000);
+        }
+        initCountdown();
+    </script>
+</body>
+</html>
