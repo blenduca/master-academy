@@ -45,7 +45,6 @@ const feedbackEl = document.getElementById('modal-feedback');
 function openLeadModal() {
     leadModal.classList.add('open');
     document.body.style.overflow = 'hidden';
-    // Re-inicializa ícones Lucide dentro do modal
     if (window.lucide) lucide.createIcons();
 }
 
@@ -54,6 +53,16 @@ function closeLeadModal() {
     leadModal.classList.remove('open');
     document.body.style.overflow = '';
 }
+
+// Botões que abrem o modal
+document.querySelectorAll('.js-open-modal').forEach(btn => {
+    btn.addEventListener('click', openLeadModal);
+});
+
+// Botões que fecham o modal
+document.querySelectorAll('.js-close-modal').forEach(btn => {
+    btn.addEventListener('click', closeLeadModal);
+});
 
 // Fechar ao clicar no overlay (fora da caixa)
 leadModal?.addEventListener('click', (e) => {
@@ -157,7 +166,3 @@ function showFeedback(msg, type) {
 function hideFeedback() {
     if (feedbackEl) feedbackEl.hidden = true;
 }
-
-// Expõe funções do modal no escopo global (necessário para onclick no HTML)
-window.openLeadModal  = openLeadModal;
-window.closeLeadModal = closeLeadModal;
