@@ -1,1 +1,15 @@
-{}
+{
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/reforma-tributaria",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/reforma-tributaria",
+      "destination": "/index.html"
+    }
+  ]
+}
