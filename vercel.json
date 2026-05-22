@@ -10,6 +10,10 @@
     {
       "source": "/reforma-tributaria",
       "destination": "/index.html"
+    },
+    {
+      "source": "/obrigado",
+      "destination": "/obrigado.html"
     }
   ]
 }
