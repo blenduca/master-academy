@@ -159,7 +159,7 @@
 
         .thankyou-headline {
             font-family: var(--font-head);
-            font-size: clamp(3rem, 7vw, 5.5rem);
+            font-size: clamp(2.2rem, 9vw, 5.5rem);
             line-height: 1.0;
             letter-spacing: 2px;
             margin-bottom: 1.5rem;
@@ -168,13 +168,14 @@
         .thankyou-headline .highlight { color: var(--green); }
 
         .thankyou-sub {
-            font-size: 1.15rem;
+            font-size: clamp(0.95rem, 3vw, 1.15rem);
             font-weight: 300;
             line-height: 1.8;
             color: rgba(255,255,255,0.82);
             max-width: 620px;
             margin: 0 auto 3rem;
             animation: fadeSlideDown 0.7s var(--ease-spring) 0.5s both;
+            padding: 0 1rem;
         }
 
         @keyframes fadeSlideDown {
@@ -198,7 +199,7 @@
             border-radius: var(--radius-md);
             padding: 1.8rem 1.5rem;
             flex: 1;
-            min-width: 190px;
+            min-width: 160px;
             max-width: 240px;
             text-align: center;
             transition: var(--transition);
@@ -297,8 +298,23 @@
         @media (max-width: 480px) {
             #whatsapp-float { padding: 14px; border-radius: 50%; }
             .whatsapp-label { display: none; }
-            .next-steps { gap: 1rem; }
-            .step-card { min-width: 140px; }
+            .next-steps { gap: 0.75rem; flex-direction: column; align-items: center; }
+            .step-card { min-width: unset; max-width: 100%; width: 100%; flex: unset; padding: 1.4rem 1.2rem; }
+            .thankyou-hero { padding: 6rem 0 4rem; }
+            .thankyou-headline { font-size: clamp(1.8rem, 10vw, 2.8rem); letter-spacing: 1px; }
+            .thankyou-sub { font-size: 0.92rem; }
+            .thankyou-tag { font-size: 0.62rem; letter-spacing: 1.5px; padding: 0.4rem 1rem; }
+            .check-circle-wrap { width: 90px; height: 90px; }
+            .check-circle-wrap i { width: 42px; height: 42px; }
+            .cta-button { padding: 0.9rem 1.5rem; font-size: 1.1rem; width: 100%; max-width: 100%; }
+            .back-cta-wrap { padding: 0 0.5rem; width: 100%; }
+        }
+        @media (max-width: 360px) {
+            .thankyou-headline { font-size: 1.6rem; }
+            .thankyou-sub { font-size: 0.88rem; }
+            .step-card { padding: 1.2rem 1rem; }
+            .step-card h4 { font-size: 0.85rem; }
+            .cta-button { font-size: 0.95rem; }
         }
     </style>
 </head>
