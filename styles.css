@@ -705,6 +705,7 @@ img { max-width: 100%; height: auto; display: block; }
     border-radius: var(--radius-lg);
     box-shadow: 0 32px 80px rgba(0,0,0,0.3);
     border-bottom: 6px solid var(--green);
+    text-align: center;
 }
 
 .offer-badge {
