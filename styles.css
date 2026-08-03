@@ -231,6 +231,83 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 /* ============================================================
+   PAYMENT BUTTONS (PIX/Boleto + Cartão)
+   ============================================================ */
+.payment-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 480px;
+}
+
+.payment-buttons .cta-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.85rem;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    text-align: left;
+    white-space: normal;
+    width: 100%;
+}
+
+.payment-buttons .btn-icon {
+    font-size: 1.6rem;
+    flex-shrink: 0;
+}
+
+.payment-buttons .btn-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.payment-buttons .btn-label {
+    font-family: var(--font-head);
+    font-size: 1.25rem;
+    letter-spacing: 1px;
+    line-height: 1;
+}
+
+.payment-buttons .btn-sublabel {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 500;
+    opacity: 0.8;
+    letter-spacing: 0.3px;
+}
+
+/* Botão PIX/Boleto — verde (padrão) */
+.cta-pix {
+    background: var(--green);
+    color: var(--navy);
+}
+.cta-pix:hover {
+    background: var(--white);
+    color: var(--navy);
+}
+
+/* Botão Cartão — azul marinho contrastado */
+.cta-card {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid rgba(255,255,255,0.55);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.25);
+}
+.cta-card:hover {
+    background: rgba(255,255,255,0.12);
+    border-color: var(--white);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+    filter: none;
+}
+
+
+
+/* ============================================================
    HERO
    ============================================================ */
 .hero {
