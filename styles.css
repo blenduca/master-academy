@@ -290,18 +290,19 @@ img { max-width: 100%; height: auto; display: block; }
     color: var(--navy);
 }
 
-/* Botão Cartão — azul marinho contrastado */
+/* Botão Cartão — azul marinho sólido */
 .cta-card {
-    background: transparent;
+    background: var(--navy);
     color: var(--white);
-    border: 2px solid rgba(255,255,255,0.55);
-    box-shadow: 0 8px 28px rgba(0,0,0,0.25);
+    border: 2px solid var(--navy-mid);
+    box-shadow: 0 8px 28px rgba(0,0,31,0.35);
 }
 .cta-card:hover {
-    background: rgba(255,255,255,0.12);
-    border-color: var(--white);
+    background: var(--navy-mid);
+    border-color: var(--navy-mid);
+    color: var(--white);
     transform: translateY(-4px);
-    box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+    box-shadow: 0 16px 40px rgba(0,0,31,0.45);
     filter: none;
 }
 
